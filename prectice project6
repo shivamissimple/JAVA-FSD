@@ -1,0 +1,42 @@
+import java.util.*;
+
+public class MapVerificationDemo {
+    public static void main(String[] args) {
+
+        // HashMap (unsorted, allows null keys and values)
+        Map<String, Integer> hashMap = new HashMap<>();
+        hashMap.put("apple", 5);
+        hashMap.put("banana", 3);
+        hashMap.put("cherry", 8);
+        hashMap.put(null, 10);  // Allowing null key
+
+        // LinkedHashMap (maintains insertion order)
+        Map<String, String> linkedHashMap = new LinkedHashMap<>();
+        linkedHashMap.put("US", "United States");
+        linkedHashMap.put("IN", "India");
+        linkedHashMap.put("JP", "Japan");
+
+        // TreeMap (sorted based on keys)
+        Map<Integer, String> treeMap = new TreeMap<>();
+        treeMap.put(10, "Ten");
+        treeMap.put(5, "Five");
+        treeMap.put(15, "Fifteen");
+
+        // Verification tasks
+        System.out.println("HashMap (unsorted): " + hashMap);
+        System.out.println("LinkedHashMap (insertion order): " + linkedHashMap);
+        System.out.println("TreeMap (sorted): " + treeMap);
+
+        // Common operations on maps
+        System.out.println("Size of HashMap: " + hashMap.size());
+        System.out.println("Value for key 'apple': " + hashMap.get("apple"));
+        System.out.println("Is 'orange' in the HashMap? " + hashMap.containsKey("orange"));
+        System.out.println("Removing key 'banana': " + hashMap.remove("banana"));
+        System.out.println("HashMap after removing 'banana': " + hashMap);
+
+        // Iterating over keys and values
+        for (String key : hashMap.keySet()) {
+            System.out.println("Key: " + key + ", Value: " + hashMap.get(key));
+        }
+    }
+}
