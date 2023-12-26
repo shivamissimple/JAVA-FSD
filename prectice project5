@@ -1,0 +1,50 @@
+import java.util.*;
+
+public class CollectionVerificationDemo {
+    public static void main(String[] args) {
+
+        // List implementation (ordered, duplicates allowed)
+        List<String> fruitsList = new ArrayList<>();
+        fruitsList.add("Apple");
+        fruitsList.add("Banana");
+        fruitsList.add("Cherry");
+        fruitsList.add("Apple"); // Duplicate allowed
+        System.out.println("List: " + fruitsList);
+
+        // Set implementation (unordered, unique elements)
+        Set<Integer> numbersSet = new HashSet<>();
+        numbersSet.add(10);
+        numbersSet.add(5);
+        numbersSet.add(15);
+        numbersSet.add(10); // Duplicate ignored
+        System.out.println("Set: " + numbersSet);
+
+        // Map implementation (key-value pairs)
+        Map<String, String> countriesMap = new HashMap<>();
+        countriesMap.put("US", "United States");
+        countriesMap.put("IN", "India");
+        countriesMap.put("JP", "Japan");
+        System.out.println("Map: " + countriesMap);
+
+        // Accessing elements
+        System.out.println("Second fruit: " + fruitsList.get(1));
+        System.out.println("Is 15 in the set? " + numbersSet.contains(15));
+        System.out.println("Capital of India: " + countriesMap.get("IN"));
+
+        // Iterating over collections
+        System.out.println("\nIterating over List:");
+        for (String fruit : fruitsList) {
+            System.out.println(fruit);
+        }
+
+        System.out.println("\nIterating over Set:");
+        for (int number : numbersSet) {
+            System.out.println(number);
+        }
+
+        System.out.println("\nIterating over Map:");
+        for (Map.Entry<String, String> entry : countriesMap.entrySet()) {
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+}
