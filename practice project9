@@ -1,0 +1,33 @@
+public class ArrayVerificationDemo {
+    public static void main(String[] args) {
+
+        // Array declaration and initialization
+        int[] numbers = {10, 20, 30, 40, 50};
+        String[] names = {"Alice", "Bob", "Charlie"};
+
+        // Accessing array elements
+        System.out.println("First number: " + numbers[0]);
+        System.out.println("Second name: " + names[1]);
+
+        // Modifying array elements
+        numbers[2] = 100;
+        names[0] = "David";
+
+        // Iterating through arrays
+        System.out.println("\nNumbers:");
+        for (int number : numbers) {
+            System.out.println(number);
+        }
+
+        System.out.println("\nNames:");
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+        // Array length
+        System.out.println("\nNumber of numbers: " + numbers.length);
+
+        // Multidimensional arrays
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        System.out.println("\nElement at row 2, column 1: " + matrix[1][0]);
+    }
