@@ -1,0 +1,20 @@
+class ConstructorTypesDemo {
+
+    // Default constructor (no-argument constructor)
+    public ConstructorTypesDemo() {
+        System.out.println("Default constructor called.");
+    }
+
+    // Parameterized constructor
+    public ConstructorTypesDemo(String name) {
+        System.out.println("Parameterized constructor called with name: " + name);
+    }
+
+    public static void main(String[] args) {
+        // Calling the default constructor
+        ConstructorTypesDemo obj1 = new ConstructorTypesDemo();
+
+        // Calling the parameterized constructor
+        ConstructorTypesDemo obj2 = new ConstructorTypesDemo("Bard");
+    }
+}
