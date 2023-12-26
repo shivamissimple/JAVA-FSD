@@ -1,0 +1,21 @@
+public class StringConversionDemo {
+    public static void main(String[] args) {
+        String string = "Hello, world!";
+
+        // Conversion to StringBuffer
+        StringBuffer stringBuffer = new StringBuffer(string);
+        System.out.println("StringBuffer: " + stringBuffer);
+
+        // Appending to StringBuffer
+        stringBuffer.append(" This is a StringBuffer.");
+        System.out.println("Modified StringBuffer: " + stringBuffer);
+
+        // Conversion to StringBuilder
+        StringBuilder stringBuilder = new StringBuilder(string);
+        System.out.println("StringBuilder: " + stringBuilder);
+
+        // Modifying StringBuilder
+        stringBuilder.insert(7, " Bard");
+        System.out.println("Modified StringBuilder: " + stringBuilder);
+    }
+}
