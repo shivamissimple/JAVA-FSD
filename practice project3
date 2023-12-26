@@ -1,0 +1,26 @@
+class MethodVerificationDemo {
+
+    // Method to calculate the area of a rectangle
+    public double calculateRectangleArea(double length, double width) {
+        return length * width;
+    }
+
+    // Method to greet a person
+    public void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    public static void main(String[] args) {
+        MethodVerificationDemo obj = new MethodVerificationDemo();
+
+        // Calling methods with different ways of passing arguments
+        double rectangleArea = obj.calculateRectangleArea(5, 3);
+        System.out.println("Rectangle area: " + rectangleArea);
+
+        obj.greet("Bard");  // Passing a string literal
+
+        // Calling a method with a variable as an argument
+        String person = "Alice";
+        obj.greet(person);
+    }
+}
