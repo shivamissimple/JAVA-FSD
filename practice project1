@@ -1,0 +1,32 @@
+public class TypeCastingDemo {
+    public static void main(String[] args) {
+        // Implicit type casting (widening)
+        byte byteValue = 10;
+        short shortValue = byteValue;   // No explicit casting needed
+        int intValue = shortValue;    // Widening conversion
+        long longValue = intValue;    // Widening conversion
+        float floatValue = longValue;  // Widening conversion
+        double doubleValue = floatValue; // Widening conversion
+
+        System.out.println("Implicit type casting:");
+        System.out.println("byte: " + byteValue);
+        System.out.println("short: " + shortValue);
+        System.out.println("int: " + intValue);
+        System.out.println("long: " + longValue);
+        System.out.println("float: " + floatValue);
+        System.out.println("double: " + doubleValue);
+
+        // Explicit type casting (narrowing)
+        doubleValue = 123.456789;
+        floatValue = (float) doubleValue;  // Explicit casting to float
+        intValue = (int) floatValue;      // Explicit casting to int
+        shortValue = (short) intValue;    // Explicit casting to short
+        byteValue = (byte) shortValue;    // Explicit casting to byte
+
+        System.out.println("\nExplicit type casting:");
+        System.out.println("float: " + floatValue);
+        System.out.println("int: " + intValue);
+        System.out.println("short: " + shortValue);
+        System.out.println("byte: " + byteValue);
+    }
+}
