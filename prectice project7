@@ -1,0 +1,24 @@
+class OuterClass {
+
+    int outerNumber = 10;
+
+    class InnerClass {
+        int innerNumber = 20;
+
+        void accessOuterMember() {
+            System.out.println("Outer number: " + outerNumber); // Accessing outer class member
+        }
+    }
+
+    public static void main(String[] args) {
+        // Creating an instance of the outer class
+        OuterClass outerObject = new OuterClass();
+
+        // Creating an instance of the inner class
+        OuterClass.InnerClass innerObject = outerObject.new InnerClass();
+        innerObject.accessOuterMember();
+
+        // Accessing inner class members from outside
+        System.out.println("Inner number: " + innerObject.innerNumber);
+    }
+}
