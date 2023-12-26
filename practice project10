@@ -1,0 +1,57 @@
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
+public class RegexVerificationDemo {
+    public static void main(String[] args) {
+
+        // 1. Matching simple patterns
+        String text = "The quick brown fox jumps over the lazy dog.";
+        String regex = "fox";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(text);
+
+        System.out.println("Matches for 'fox':");
+        while (matcher.find()) {
+            System.out.println("Found at index: " + matcher.start() + " - " + matcher.end());
+        }
+
+        // 2. Matching with groups and flags
+        String phoneNum = "123-456-7890";
+        String email = "johndoe@example.com";
+
+        Pattern phonePattern = Pattern.compile("(\\d{3})-(\\d{3})-(\\d{4})");
+        Matcher phoneMatcher = phonePattern.matcher(phoneNum);
+
+        System.out.println("\nPhone number groups:");
+        if (phoneMatcher.matches()) {
+            for (int i = 1; i <= phoneMatcher.groupCount(); i++) {
+                System.out.println("Group " + i + ": " + phoneMatcher.group(i));
+            }
+        }
+
+        Pattern emailPattern = Pattern.compile("[a-zA-Z0-9._]+@[a-zA-Z0-9]+\\.[a-zA-Z]+", Pattern.CASE_INSENSITIVE);
+        Matcher emailMatcher = emailPattern.matcher(email);
+
+        System.out.println("\nValid email: " + emailMatcher.matches());
+
+        // 3. Using special characters
+        String password = "MySuperSecret123!";
+        Pattern passwordPattern = Pattern.compile(
+                "(?=.[A-Z])(?=.[a-z])(?=.\\d)(?=.[!#$%&'*+,-./:;<=>?@\\^{}|_`~])\\S{8,}"
+        );
+        Matcher passwordMatcher = passwordPattern.matcher(password);
+
+        System.out.println("\nStrong password: " + passwordMatcher.matches());
+
+        // 4. Replacing and splitting with regex
+        String textToReplace = "Hello, world! How are you today?";
+        String replacedText = textToReplace.replaceAll("world", "Bard");
+        System.out.println("\nReplaced text: " + replacedText);
+
+        String[] words = textToReplace.split("[, .!?]");
+        System.out.println("\nWords:");
+        for (String word : words) {
+            System.out.println(word);
+        }
+    }
+}
