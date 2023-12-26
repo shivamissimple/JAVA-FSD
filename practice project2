@@ -1,0 +1,24 @@
+class AccessModifiersDemo {
+
+    // Private variable, accessible only within this class
+    private int privateNumber = 10;
+
+    // Protected variable, accessible within this class, subclasses, and the same package
+    protected String protectedName = "Bard";
+
+    // Default variable, accessible within this package
+    int defaultCount = 50;
+
+    // Public variable, accessible from anywhere
+    public static double publicValue = 3.14159;
+
+    public static void main(String[] args) {
+        AccessModifiersDemo obj = new AccessModifiersDemo();
+
+        // Accessing members within the same class
+        System.out.println("Private number: " + obj.privateNumber);
+        System.out.println("Protected name: " + obj.protectedName);
+        System.out.println("Default count: " + obj.defaultCount);
+        System.out.println("Public value: " + publicValue);
+    }
+}
