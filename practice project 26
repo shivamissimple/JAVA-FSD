@@ -1,0 +1,71 @@
+class Node {
+    int data;
+    Node next;
+
+    Node(int data) {
+        this.data = data;
+    }
+}
+
+public class SortedCircularLinkedList {
+
+    public static Node sortedInsert(Node head, int data) {
+        if (head == null) {  // Handle empty list
+            Node newNode = new Node(data);
+            newNode.next = newNode;  // Make it circular
+            return newNode;
+        }
+
+        Node current = head;
+
+        // Traverse the list to find the appropriate insertion point
+        do {
+            if (data <= current.data) {
+                break;  // Found the insertion point
+            }
+            current = current.next;
+        } while (current != head);  // Stop when we reach the starting node again
+
+        Node newNode = new Node(data);
+
+        // Insert at the beginning if the new node is smaller than all nodes
+        if (current.next == head) {
+            newNode.next = head;
+            head = newNode;
+        } else {
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+
+        return head;
+    }
+
+    public static void printList(Node head) {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node current = head;
+        do {
+            System.out.print(current.data + " ");
+            current = current.next;
+        } while (current != head);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(5);
+        head.next = new Node(10);
+        head.next.next = head;  // Make it circular
+
+        System.out.println("Original list:");
+        printList(head);
+
+        int newData = 7;
+        head = sortedInsert(head, newData);
+
+        System.out.println("List after inserting " + newData + ":");
+        printList(head);
+    }
+}
