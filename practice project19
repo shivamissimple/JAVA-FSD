@@ -1,0 +1,34 @@
+interface Sample {
+    default void display() {
+        System.out.println("The display() method of Sample interface invoked");
+    }
+}
+
+interface Demo1 extends Sample {
+    @Override
+    default void display() {
+        System.out.println("The display() method of Demo1 interface invoked");
+    }
+}
+
+interface Demo2 extends Sample {
+    @Override
+    default void display() {
+        System.out.println("The display() method of Demo2 interface invoked");
+    }
+}
+
+class DemoClass implements Demo1, Demo2 {
+    @Override
+    public void display() {
+        // Explicitly specify which default method to call
+        Demo1.super.display();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        DemoClass obj = new DemoClass();
+        obj.display(); // Output: The display() method of Demo1 interface invoked
+    }
+}
