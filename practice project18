@@ -1,0 +1,22 @@
+Java
+class Dog {
+    String name;
+    int age;
+    String breed;
+
+    void bark() {
+        System.out.println("Woof!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Dog myDog = new Dog();  // Create an object of the Dog class
+        myDog.name = "Fido";
+        myDog.age = 3;
+        myDog.breed = "Golden Retriever";
+        myDog.bark();  // Call the bark() method on the object
+
+        System.out.println("My dog's name is " + myDog.name);
+    }
+}
