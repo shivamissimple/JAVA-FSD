@@ -1,0 +1,48 @@
+class Node {
+    int data;
+    Node next;
+    Node prev;
+
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+        this.prev = null;
+    }
+}
+
+public class DoublyLinkedListTraversal {
+
+    public static void forwardTraversal(Node head) {
+        System.out.print("Forward traversal: ");
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
+        }
+        System.out.println();
+    }
+
+    public static void backwardTraversal(Node tail) {
+        System.out.print("Backward traversal: ");
+        Node current = tail;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.prev;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Node head = new Node(10);
+        Node second = new Node(20);
+        Node third = new Node(30);
+
+        head.next = second;
+        second.prev = head;
+        second.next = third;
+        third.prev = second;
+
+        forwardTraversal(head);  // Output: Forward traversal: 10 20 30
+        backwardTraversal(third);  // Output: Backward traversal: 30 20 10
+    }
+}
