@@ -1,0 +1,41 @@
+// Custom exception class
+class InvalidAgeError extends Exception {
+    public InvalidAgeError(String message) {
+        super(message);
+    }
+}
+
+class ExceptionDemo {
+    static void validateAge(int age) throws InvalidAgeError {
+        if (age <= 0) {
+            throw new InvalidAgeError("Age must be a positive integer.");
+        }
+        System.out.println("Age is valid.");
+    }
+
+    public static void main(String[] args) {
+        try {
+            validateAge(-10); // Will throw InvalidAgeError
+        } catch (InvalidAgeError e) {
+            System.out.println("Error: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+
+        // Throws a checked exception (must be handled or declared)
+        try {
+            throw new IOException("Example of a checked exception.");
+        } catch (IOException e) {
+            System.out.println("Checked exception caught: " + e.getMessage());
+        }
+
+        // Throws an unchecked exception (doesn't need to be declared)
+        try {
+            int result = 5 / 0; // ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Unchecked exception caught: " + e.getMessage());
+        }
+
+        System.out.println("Program continues...");
+    }
+}
