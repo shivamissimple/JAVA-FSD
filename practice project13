@@ -1,0 +1,41 @@
+public class SynchronizationDemo {
+
+    private static
+ 
+int count = 0;
+
+    public
+ 
+static
+ 
+void
+ 
+main(String[] args)
+ 
+throws InterruptedException {
+        Thread thread1 = new Thread(() -> {
+            for (int i = 0; i < 10000; i++) {
+                incrementCount(); // Access shared resource
+            }
+        });
+
+        Thread thread2 = new Thread(() -> {
+            for (int i = 0; i < 10000; i++) {
+                incrementCount(); // Access shared resource
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+
+        thread1.join(); // Wait for thread 1 to finish
+        thread2.join(); // Wait for thread 2 to finish
+
+        System.out.println("Final count: " + count);
+    }
+
+    // Synchronized method to ensure only one thread accesses count at a time
+    private synchronized static void incrementCount() {
+        count++;
+    }
+}
