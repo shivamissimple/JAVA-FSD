@@ -1,0 +1,21 @@
+public class TryCatchDemo {
+    public static void main(String[] args) {
+        try {
+            int[] myNumbers = {1, 2, 3};
+            System.out.println(myNumbers[10]); // Attempt to access an invalid index
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Error: Array index out of bounds!");
+            // Optionally, print the exception message for debugging:
+            // System.out.println(e.getMessage());
+        }
+
+        try {
+            int result = 50 / 0; // Attempt to divide by zero
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero!");
+        }
+
+        System.out.println("Program continues...");
+    }
+}
