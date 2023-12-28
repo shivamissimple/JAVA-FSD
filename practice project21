@@ -1,0 +1,40 @@
+public class ArrayRotation {
+
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3, 4, 5};
+        int n = 5;  // Number of steps to rotate
+
+        // Rotate the array using a temporary array
+        rotateArray(arr, n);
+
+        // Print the rotated array
+        System.out.println("Rotated array: ");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+
+    public static void rotateArray(int[] arr, int d) {
+        if (d == 0 || d == arr.length) {
+            // No rotation needed
+            return;
+        }
+
+        int[] temp = new int[d];
+
+        // Copy the last d elements to the temporary array
+        for (int i = 0; i < d; i++) {
+            temp[i] = arr[arr.length - d + i];
+        }
+
+        // Shift the remaining elements to the right
+        for (int i = arr.length - d - 1; i >= 0; i--) {
+            arr[i + d] = arr[i];
+        }
+
+        // Copy the elements from the temporary array back to the beginning of the original array
+        for (int i = 0; i < d; i++) {
+            arr[i] = temp[i];
+        }
+    }
+}
