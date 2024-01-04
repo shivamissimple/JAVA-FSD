@@ -1,0 +1,45 @@
+public class ExponentialSearch {
+
+    public static int exponentialSearch(int[] arr, int key) {
+        if (arr[0] == key) {
+            return 0;  // Element found at the first position
+        }
+
+        int i = 1;
+        while (i < arr.length && arr[i] <= key) {
+            i *= 2;  // Jump by powers of 2
+        }
+
+        return binarySearch(arr, i / 2, Math.min(i, arr.length), key);
+    }
+
+    // Helper function for binary search within the narrowed range
+    private static int binarySearch(int[] arr, int low, int high, int key) {
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] == key) {
+                return mid;
+            } else if (arr[mid] < key) {
+                low = mid + 1;
+            } else {
+                high = mid - 1;
+            }
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {2, 3, 4, 10, 40};
+        int key = 10;
+
+        int index = exponentialSearch(arr, key);
+
+        if (index != -1) {
+            System.out.println("Element " + key + " found at index " + index);
+        } else {
+            System.out.println("Element " + key + " not found");
+        }
+    }
+}
